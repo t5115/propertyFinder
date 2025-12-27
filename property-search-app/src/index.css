@@ -1,0 +1,6 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
