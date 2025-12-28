@@ -9,7 +9,8 @@
     width: 100%;           
     max-width: 1200px;     
     padding: 0.75rem;
-    margin: 0 auto;       
+    margin: 0 25px;
+        
     border-radius: 10px;
     background-color: rgb(125, 171, 172);
 }
@@ -22,12 +23,22 @@
     margin:0px;
 }
 
-/*Search button styles*/
+/*Form containing all the buttons - grid to fit elements in and resize*/
 .search-form{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, 230px);
     gap: 0.75rem;
 }
+
+/*Postcode Search Styling*/
+.form-field {
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
 
 /* mobile: stack items vertically and increase padding */
 @media (max-width: 600px) {

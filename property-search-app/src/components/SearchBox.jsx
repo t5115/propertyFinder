@@ -6,20 +6,28 @@ function SearchBox() {
         <h2>Search properties for sale.</h2>
         <form className="search-form">
 
-            <div className="postcode-search-input">
-              <p>Area</p>
-              <input
-                type="search"
-                placeholder="Search by postcode area"
-              />
-              <button type="submit">Search</button>
+            <div id="postcode-search-input">
+                <p>Area</p>
+                  <div className="form-button"> 
+                    <input className="form-field"
+                        type="search"
+                        placeholder="Search by postcode area"/>
+                  </div>
             </div>
 
+            <div id="property-types-input">
+                <p>Area</p>
+                  <div className="form-button"> 
+                    <select className="form-field">
+                        <option value="">Select property type</option> 
+                        <option value="house">House</option>
+                        <option value="flat">Flat</option>
+                        <option value="studio">Studio</option>
+                    </select>
+                  </div>
+            </div>
             
-
-           
-
-          
+            
         </form>
     </div>
    );
