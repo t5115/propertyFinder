@@ -1,7 +1,7 @@
-/* Page Style */
+/*Page Style*/
 import "./SearchPage.css";
 
-/* Component CSS */
+/*Component*/
 import Navbar from "../components/Navbar";
 import SearchBox from "../components/SearchBox";
 
