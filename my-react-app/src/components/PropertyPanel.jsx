@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import houseTemplate from "../assets/houseTemplate1.jpg";
 import heart from "../assets/heart.svg";
 
@@ -9,12 +10,14 @@ function PropertyPanel({property}) {
     <>
       {/*Child Container*/}
       <div className="property-card">
-         <img
-            className="property-img"
-            src={property.picture ? `/${property.picture}` : houseTemplate}
-            alt="Property"
-            onError={(e) => { e.target.src = houseTemplate; }}
-          />
+        <Link>
+          <img
+              className="property-img"
+              src={property.picture ? `/${property.picture}` : houseTemplate}
+              alt="Property"
+              onError={(e) => { e.target.src = houseTemplate; }}
+            />
+        </Link>
           <div className="right-box">
             <div className="info-box">
               <p className="price">£{property.price?.toLocaleString()}</p>

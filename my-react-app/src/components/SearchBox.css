@@ -11,7 +11,9 @@
     width: 100%;           
     max-width: 1200px;     
     padding: 0.75rem;
-    margin: 0 auto;;
+    margin: 0 auto;
+    margin-left: 1rem;
+    margin-right:1rem;
         
     border-radius: 15px;
  
@@ -69,13 +71,6 @@
     position: relative;
 }
 
-#postcode-search-input input {
-  font-family: 'Effra', sans-serif;
-}
-
-#postcode-search-input input::placeholder {
-  font-family: 'Effra', sans-serif; 
-}
 
 /*Mobile*/
 @media (max-width: 600px) {

@@ -1,9 +1,9 @@
 
 
-function SearchResults(){
+function SearchResults({amount}){
     return(
         <div className="search-container">
-            <p>Searched returned 7 properties</p>
+            <p>Searched returned {amount} propertie(s)</p>
         </div>
     );
 }

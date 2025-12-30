@@ -19,7 +19,7 @@ function SearchBox() {
 
     /*Postcode*/
     const [area, setArea] = useState(""); 
-    const areaOptions = ["London","York","Birmingham","Manchester","Westminster"];
+    const areaOptions = ["London","York","Birmingham","Manchester","Westminster","Orpington"];
 
 
     /*Property Type */
@@ -50,14 +50,24 @@ function SearchBox() {
 
     const handleSearch = (e) => {
       e.preventDefault();           // prevent default form submission
-      console.log("Search Values:");
-      console.log("Area:", area);
-      console.log("Property Type:", propertyType);
-      console.log("Added To Site:", addedToSite);
-      console.log("Min Price:", minPrice);
-      console.log("Max Price:", maxPrice);
-      console.log("Bedrooms:", bedrooms);
-      navigate("/property");       
+
+      if (!area || area.trim() === "") {
+        alert("Please enter an area or postcode");
+        return; // Stop the function here so navigate() isn't called
+      }
+      
+      const searchCriteria = {
+        area,
+        propertyType,
+        addedToSite,
+        minPrice: parseInt(minPrice) || 0,
+        maxPrice: parseInt(maxPrice) || Infinity,
+        bedrooms
+      };
+      console.log("Search Values:", { searchCriteria }); 
+      
+      navigate("/property", { state: searchCriteria });
+   
     };
 
    return (
@@ -69,16 +79,16 @@ function SearchBox() {
 
              {/*Postcode Search Input */}
             <div id="postcode-search-input">
-              <p>Area</p>
+              <p>Area*</p>
                 <div className="form-button">
                   <Combobox
-                    data={areaOptions}          // Options for dropdown
-                    placeholder="Search by area" // Placeholder text
-                    value={area}                // Current value
-                    onChange={(value) => setArea(value)} // Update state on selection
-                    defaultValue="New York"     // Optional default
-                    hideCaret={false}           // Show caret
-                    hideEmptyPopup={true}       // Hide popup if empty
+                    data={areaOptions}         
+                    placeholder="Search by area" 
+                    value={area}              
+                    onChange={(value) => setArea(value)} 
+                    defaultValue="New York"     
+                    hideCaret={false}           
+                    hideEmptyPopup={true}       
                   />
               </div>
             </div>
