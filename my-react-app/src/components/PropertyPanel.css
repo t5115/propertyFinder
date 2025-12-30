@@ -1,0 +1,47 @@
+.property-container{
+    width: 60%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.property-card{
+    display: flex;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width:100%;
+    gap:1rem;
+    margin-bottom: 20px;
+}
+
+.property-img{
+    width: 40%;             
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+   
+}
+
+.right-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.property-details{
+    display: flex;
+    gap:1rem;
+}
+
+.property-details > p {
+    background-color: rgb(231, 228, 228);
+    border-radius: 5px;
+    padding: 0.25rem;
+    margin:0px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.price{
+    font-size:2rem;
+    margin-top:15px;
+    margin-bottom: 8px;
+}
+

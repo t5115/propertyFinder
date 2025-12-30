@@ -1,0 +1,10 @@
+.favourite-panel{
+    display: flex;
+    width: 40%;
+    height: 100%;
+    font-size: 2rem;
+    background-color: green ;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
