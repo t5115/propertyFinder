@@ -12,6 +12,7 @@ function PropertyPanel() {
               <div className="right-box">
                 <div className="info-box">
                   <p className="price">£300,000</p>
+                  <p className="address">42 Finchley Crescent BL6 TXU</p>
                   <div className="property-details">
                       <p className="property-type">House</p>
                       <p className="bedrooms">2 Beds</p>
@@ -22,11 +23,7 @@ function PropertyPanel() {
                 </div>
               </div>
           </div>
-
-      
-
           
-
       </div>
     </>
   )
