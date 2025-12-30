@@ -4,6 +4,8 @@ import React, { useState } from "react";
 
 import "react-widgets/styles.css";
 import { DropdownList } from "react-widgets";
+import { Combobox } from "react-widgets";
+
 
 import './SearchBox.css';
 import { valueMatcher } from "react-widgets/cjs/Accessors";
@@ -16,7 +18,9 @@ function SearchBox() {
     /*Stores*/
 
     /*Postcode*/
-    const [postcode, setPostcode] = useState(""); 
+    const [area, setArea] = useState(""); 
+    const areaOptions = ["London","York","Birmingham","Manchester","Westminster"];
+
 
     /*Property Type */
     const [propertyType, setPropertyType] = useState("Any"); 
@@ -47,7 +51,7 @@ function SearchBox() {
     const handleSearch = (e) => {
       e.preventDefault();           // prevent default form submission
       console.log("Search Values:");
-      console.log("Postcode:", postcode);
+      console.log("Area:", area);
       console.log("Property Type:", propertyType);
       console.log("Added To Site:", addedToSite);
       console.log("Min Price:", minPrice);
@@ -65,15 +69,18 @@ function SearchBox() {
 
              {/*Postcode Search Input */}
             <div id="postcode-search-input">
-                <p>Area</p>
-                  <div className="form-button"> 
-                    <input className="form-field"
-                        type="search"
-                        placeholder="Search by postcode area"
-                        value={postcode}
-                        onChange={(e)=>setPostcode(e.target.value)}
-                        />
-                  </div>
+              <p>Area</p>
+                <div className="form-button">
+                  <Combobox
+                    data={areaOptions}          // Options for dropdown
+                    placeholder="Search by area" // Placeholder text
+                    value={area}                // Current value
+                    onChange={(value) => setArea(value)} // Update state on selection
+                    defaultValue="New York"     // Optional default
+                    hideCaret={false}           // Show caret
+                    hideEmptyPopup={true}       // Hide popup if empty
+                  />
+              </div>
             </div>
 
             {/*Area dropdown input*/}

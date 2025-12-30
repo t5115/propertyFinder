@@ -43,7 +43,7 @@
     align-items: center;
 }
 
-/*Styles all inputs in the form (AFTER ADDING REACT WIDGETS IT NOW ONLY STYLES TWO THINGS)*/
+/*Styles button (name is odd because i replaced all html elements with react widgets after)*/
 .form-field {
     
     color: #495057;                
