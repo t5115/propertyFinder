@@ -2,6 +2,11 @@
   display: flex;
 }
 
+.mobile-layout {
+  display: none; /* hide by default */
+}
+
+
 .mobile-tabs {
   display: none;
 }
