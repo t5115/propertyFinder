@@ -1,4 +1,5 @@
 import houseTemplate from "../assets/houseTemplate1.png"
+import heart from "../assets/heart.svg"
 
 function PropertyPanel() {
   return (
@@ -20,6 +21,8 @@ function PropertyPanel() {
                   <p className="description">Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood..</p>
                 </div>
                 <div className="bottom-box">
+                    <p>Date Added: 28 Oct 2025</p>
+                    <img className="bottom-icon" src={heart}/>
                 </div>
               </div>
           </div>
