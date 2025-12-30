@@ -16,10 +16,9 @@
 .property-img{
     width: 40%;             
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     cursor: pointer;
-   
 }
 
 .right-box{
@@ -77,4 +76,8 @@
     flex-shrink: 0;            
 }
 
-
+@media (max-width: 900px) {
+ .property-container{
+    width:100%;
+ }
+}

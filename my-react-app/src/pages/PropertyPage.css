@@ -1,5 +1,49 @@
 .panels-container{
-    display: flex;
-    
+  display: flex;
 }
 
+.mobile-tabs {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .desktop-layout {
+    display: none;
+  }
+
+  .mobile-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 12px;
+    justify-content: center;
+  }
+
+  .mobile-tabs button {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #d1d1d1; /* subtle border */
+    border-radius: 6px;
+    background: #f9f9f9;        /* light neutral background */
+    color: #333;
+   
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .mobile-tabs button:hover {
+    background: #e6e6e6;        /* subtle hover effect */
+    border-color: #c0c0c0;
+  }
+
+  .mobile-tabs button.active {
+    background: #0071c2;        /* Rightmove-style blue */
+    color: white;
+    border-color: #0071c2;
+  }
+
+  .mobile-layout {
+    display: block;
+  }
+}
