@@ -15,6 +15,9 @@ function SearchBox() {
 
     /*Stores*/
 
+    /*Postcode*/
+    const [postcode, setPostcode] = useState(""); 
+
     /*Property Type */
     const [propertyType, setPropertyType] = useState("Any"); 
     const propertyOptions = ["Any","House", "Flat", "Studio"];
@@ -31,7 +34,7 @@ function SearchBox() {
       50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000,
       600000, 700000, 800000, 900000, 1000000, 1250000, 1500000, 1750000, 2000000,
       2500000, 3000000, 3500000, 4000000, 4500000, 5000000,
-      6000000, 7000000, 8000000, 9000000, 10000000, 12500000, 15000000, 17500000, 20000000
+      6000000, 7000000, 8000000, 9000000, 10000000, 12500000, 15000000, 17500000, 20000000,
     ];
 
     /*Bedroom Number*/
@@ -43,7 +46,13 @@ function SearchBox() {
 
     const handleSearch = (e) => {
       e.preventDefault();           // prevent default form submission
-      console.log("Searching for:", propertyType);
+      console.log("Search Values:");
+      console.log("Postcode:", postcode);
+      console.log("Property Type:", propertyType);
+      console.log("Added To Site:", addedToSite);
+      console.log("Min Price:", minPrice);
+      console.log("Max Price:", maxPrice);
+      console.log("Bedrooms:", bedrooms);
       navigate("/property");       
     };
 
@@ -60,7 +69,10 @@ function SearchBox() {
                   <div className="form-button"> 
                     <input className="form-field"
                         type="search"
-                        placeholder="Search by postcode area"/>
+                        placeholder="Search by postcode area"
+                        value={postcode}
+                        onChange={(e)=>setPostcode(e.target.value)}
+                        />
                   </div>
             </div>
 
@@ -96,7 +108,7 @@ function SearchBox() {
                   <DropdownList
                     
                     data={priceOptions}
-                    value={minPrice}
+                    value={minPrice||null}
                     onChange={(value)=>setMinPrice(value)}
                     placeholder="No min £"
                     textField={(price)=>`£${price.toLocaleString()}`}
@@ -105,7 +117,7 @@ function SearchBox() {
                   <DropdownList
                     
                     data={priceOptions}
-                    value={maxPrice}
+                    value={maxPrice||null}
                     onChange={(value)=>setMaxPrice(value)}
                     placeholder="No max £"
                     textField={(price)=>`£${price.toLocaleString()}`} 

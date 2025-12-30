@@ -11,21 +11,22 @@
     width: 100%;           
     max-width: 1200px;     
     padding: 0.75rem;
-    margin: 0 25px;
+    margin: 0 auto;;
         
-    border-radius: 10px;
-    background-color: rgb(125, 171, 172);
-    background-color:   rgb(175, 176, 176);
+    border-radius: 15px;
+ 
+    
+    background-color: rgba(198, 198, 198, 0.8); /* semi-transparent white */
+    backdrop-filter: blur(10px);  /* soft blur effect behind card */
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* subtle floating shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* soft edge highlight */
+
 }
 
 .container h2 {
     margin-top: 5px;
-    
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-seri;
-    font-weight: bold;
-
-
-
+    font-weight: bold
 }
 
 .container p{
@@ -68,6 +69,14 @@
     position: relative;
 }
 
+#postcode-search-input input {
+  font-family: 'Effra', sans-serif;
+}
+
+#postcode-search-input input::placeholder {
+  font-family: 'Effra', sans-serif; 
+}
+
 /*Mobile*/
 @media (max-width: 600px) {
     .container {
@@ -90,7 +99,8 @@
 #search-button .form-field{
   margin-top: 20px; /*Manually pushing the button down*/
   min-height: 50px;
-  background-color: rgb(79, 232, 79);
+  background-color: rgb(0, 158, 0);
   font-weight: bold;
+  color: black;
  
 }
