@@ -1,4 +1,4 @@
-import houseTemplate from "../assets/houseTemplate1.png"
+import houseTemplate from "../assets/houseTemplate1.jpg"
 import heart from "../assets/heart.svg"
 
 
