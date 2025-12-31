@@ -82,6 +82,10 @@
     flex-shrink: 0;            
 }
 
+.property-link{
+  text-decoration: none;
+  color: inherit;
+}
 
 @media (max-width: 900px) {
   .property-container {

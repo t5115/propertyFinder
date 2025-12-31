@@ -22,7 +22,8 @@ function PropertyPanel({property}) {
             />
         </Link>
           <div className="right-box">
-            <div className="info-box">
+            <Link to={`/property/${property.id}`} className="property-link">
+              <div className="info-box">
               <p className="price">£{property.price?.toLocaleString()}</p>
               <p className="address">{property.location}</p>
               <div className="property-details">
@@ -31,6 +32,7 @@ function PropertyPanel({property}) {
               </div>
               <p className="description">{property.description?.substring(0, 120)}...</p>
             </div>
+            </Link>
             <div className="bottom-box">
                 <p>Date Added: {property.added?.day} {property.added?.month} {property.added?.year}</p>
                 <img className="bottom-icon" src={heart}/>
