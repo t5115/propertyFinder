@@ -41,19 +41,66 @@ function SearchBox() {
       6000000, 7000000, 8000000, 9000000, 10000000, 12500000, 15000000, 17500000, 20000000,
     ];
 
+    /* Ensures minPrice is never higher than maxPrice */
+    const handlePriceChange = (type, value) => {
+      const min = type === "min" ? value : minPrice || 0;
+      const max = type === "max" ? value : maxPrice || Infinity;
+
+      if (type === "min") {
+        if (value > max) {
+          setMinPrice(""); // reset to empty / no min
+        } else {
+          setMinPrice(value);
+        }
+      } else if (type === "max") {
+        if (min > value) {
+          setMaxPrice(""); // reset to empty / no max
+        } else {
+          setMaxPrice(value);
+        }
+      }
+    };
+
     /*Bedroom Number*/
-    const [bedrooms, setBedrooms] = useState("Any");
-    const bedroomOptions = ["Any","Studio","1","2","3","4","5+"];  
+    const [minBedrooms, setMinBedrooms] = useState("Any");
+    const [maxBedrooms, setMaxBedrooms] = useState("Any");  
+
+    const minBedroomOptions = ["Any", "1", "2", "3", "4", "5"];
+    const maxBedroomOptions = ["Any", "1", "2", "3", "4", "5+"];
+
+    /* Ensures minBedrooms is never higher than maxBedrooms*/
+    const handleBedroomChange = (type, value) => {
+      /* Convert selected values into comparable numbers */
+      const min =
+        value === "Any" || (type === "max" && minBedrooms === "Any")
+          ? 0
+          : Number(type === "min" ? value : minBedrooms);
+
+      const max =
+        value === "Any" || (type === "max" && value === "5+")
+          ? Infinity
+          : Number(type === "max" ? value : maxBedrooms);
+
+      /* Reset if the range becomes invalid (min > max) */
+      if (min > max) {
+        type === "min" ? setMinBedrooms("Any") : setMaxBedrooms("Any");
+        return;
+      }
+
+      /* Update the selected bedroom value */
+      type === "min" ? setMinBedrooms(value) : setMaxBedrooms(value);
+    };
+
     
     /*Page Navigation*/
-     const navigate = useNavigate();  // get navigate function
+     const navigate = useNavigate(); 
 
     const handleSearch = (e) => {
-      e.preventDefault();           // prevent default form submission
+      e.preventDefault();          
 
       if (!area || area.trim() === "") {
         alert("Please enter an area or postcode");
-        return; // Stop the function here so navigate() isn't called
+        return; 
       }
       
       const searchCriteria = {
@@ -62,7 +109,8 @@ function SearchBox() {
         addedToSite,
         minPrice: parseInt(minPrice) || 0,
         maxPrice: parseInt(maxPrice) || Infinity,
-        bedrooms
+        minBedrooms,
+        maxBedrooms
       };
       console.log("Search Values:", { searchCriteria }); 
       
@@ -126,7 +174,7 @@ function SearchBox() {
                     
                     data={priceOptions}
                     value={minPrice||null}
-                    onChange={(value)=>setMinPrice(value)}
+                    onChange={(value) => handlePriceChange("min", value)}
                     placeholder="No min £"
                     textField={(price)=>`£${price.toLocaleString()}`}
                   />
@@ -135,24 +183,40 @@ function SearchBox() {
                     
                     data={priceOptions}
                     value={maxPrice||null}
-                    onChange={(value)=>setMaxPrice(value)}
+                    onChange={(value) => handlePriceChange("max", value)}
                     placeholder="No max £"
                     textField={(price)=>`£${price.toLocaleString()}`} 
                   />
                 </div>
             </div>
 
-            {/*No of bedrooms input*/}
-            <div id="bedrooms-input">
+            {/* No of bedrooms input */}
+            <div className="bedrooms-input">
               <p>Number of bedrooms</p>
-              <div className="form-button">
-                <DropdownList
-                  data={bedroomOptions}
-                  value={bedrooms}
-                  onChange={(value)=>setBedrooms(value)}
-                />
+
+              <div className="bedrooms-range-wrapper">
+                <div className="form-button">
+                  <DropdownList
+                    data={minBedroomOptions}
+                    value={minBedrooms}
+                    onChange={(value) => handleBedroomChange("min", value)}
+                    placeholder="Min"
+                  />
+                </div>
+
+                <span className="bedroom-separator">–</span>
+
+                <div className="form-button">
+                  <DropdownList
+                    data={maxBedroomOptions}
+                    value={maxBedrooms}
+                    onChange={(value) => handleBedroomChange("max", value)}
+                    placeholder="Max"
+                    />
+                </div>
               </div>
             </div>
+
 
             {/*Search button*/}
             <div id="search-button">

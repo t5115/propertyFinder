@@ -22,34 +22,37 @@ function PropertyPage() {
 
   /*Filtering Logic (TODO: n/a) */
   const filteredProperties = allProperties.filter((item) => {
-    // 1. AREA/POSTCODE
+    /* 1. AREA/POSTCODE */
     const searchArea = (criteria.area || "").toLowerCase();
     const matchesArea = item.location.toLowerCase().includes(searchArea);
 
-    // 2. PROPERTY TYPE
+    /* 2. PROPERTY TYPE */
     const matchesType = criteria.propertyType === "Any" || item.type === criteria.propertyType;
 
-    // 3. PRICE RANGE
+    /* 3. PRICE RANGE */
     const min = parseInt(criteria.minPrice) || 0;
     const max = parseInt(criteria.maxPrice) || Infinity;
     const matchesPrice = item.price >= min && item.price <= max;
 
-    // 4. BEDROOMS
-    let matchesBedrooms = true;
-    if (criteria.bedrooms && criteria.bedrooms !== "Any") {
-      if (criteria.bedrooms === "Studio") {
-        matchesBedrooms = item.bedrooms === 0;
-      } else if (criteria.bedrooms === "5+") {
-        matchesBedrooms = item.bedrooms >= 5;
-      } else {
-        matchesBedrooms = item.bedrooms === parseInt(criteria.bedrooms);
-      }
-    } // Ensure this brace is closed!
+    /* 4. BEDROOMS */
+    // 4. BEDROOM RANGE
+    const minBeds =
+    criteria.minBedrooms === "Any" ? 0 : Number(criteria.minBedrooms);
 
-    // 5. DATE ADDED FILTER
+    const maxBeds =
+      ["Any", "5+"].includes(criteria.maxBedrooms)
+        ? Infinity
+        : Number(criteria.maxBedrooms);
+
+    const matchesBedrooms =
+      item.bedrooms >= minBeds &&
+      item.bedrooms <= maxBeds;
+
+
+    /* 5. DATE ADDED FILTER */
     let matchesDate = true;
     if (criteria.addedToSite && criteria.addedToSite !== "Anytime") {
-      // Construct date: e.g., "May 2, 2022"
+      
       const dateString = `${item.added.month} ${item.added.day}, ${item.added.year}`;
       const propertyDate = new Date(dateString);
       const currentDate = new Date();
@@ -68,15 +71,15 @@ function PropertyPage() {
       }
     }
 
-    // Now all variables (matchesArea, matchesType, matchesPrice, matchesBedrooms, matchesDate) are accessible here
+   
     return matchesArea && matchesType && matchesPrice && matchesBedrooms && matchesDate;
     
   });
 
-  // get the amount of properties
+  /* get the amount of properties */
   const totalResults = filteredProperties.length;
 
-  // Helper function to render the list (shared for mobile/desktop)
+  /* Helper function */
   const renderPropertyList = () => (
     <>
       {filteredProperties.length > 0 ? (
