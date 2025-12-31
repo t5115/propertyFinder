@@ -1,6 +1,7 @@
-.page-wrapper{
+.page-wrapper{ /*Align content in the middle*/
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
 }
+
