@@ -45,7 +45,7 @@
       "added": {
         "month": "August",
         "day": 3,
-        "year": 2022
+        "year": 2025
       }
     },
     {
@@ -75,9 +75,9 @@
       "picture": "images/prop5pic1small.jpg",
       "url": "properties/prop5.html",
       "added": {
-        "month": "June",
-        "day": 10,
-        "year": 2022
+        "month": "December",
+        "day": 28,
+        "year": 2025
       }
     },
     {
@@ -91,8 +91,8 @@
       "picture": "images/prop6pic1small.jpg",
       "url": "properties/prop6.html",
       "added": {
-        "month": "May",
-        "day": 2,
+        "month": "December",
+        "day": 21,
         "year": 2022
       }
     },

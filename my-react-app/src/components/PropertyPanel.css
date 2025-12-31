@@ -83,9 +83,32 @@
 }
 
 
-
 @media (max-width: 900px) {
- .property-container{
-    width:100%;
- }
+  .property-container {
+    width: 100%;
+    padding: 0 0.5rem; 
+  }
+
+  .property-card {
+    flex-direction: column; 
+    gap: 0; 
+  }
+
+  .property-link {
+    width: 100%; 
+  }
+
+  .property-img {
+    height: 250px;   
+    object-fit: contain; 
+    box-shadow: none; 
+  }
+
+  .right-box {
+    padding: 1rem; 
+  }
+  
+  .price {
+    font-size: 1.5rem; 
+  }
 }

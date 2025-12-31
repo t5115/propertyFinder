@@ -6,11 +6,14 @@ function PropertyPanel({property}) {
   
   if (!property) return null;
   
+  console.log(property.id, `/property/${property.id}`);
+
+
   return (
     <>
       {/*Child Container*/}
       <div className="property-card">
-        <Link>
+        <Link to={`/property/${property.id}`} className="property-link">
           <img
               className="property-img"
               src={property.picture ? `/${property.picture}` : houseTemplate}

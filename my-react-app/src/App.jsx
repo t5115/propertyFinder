@@ -1,26 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom"
+import SearchPage from './pages/SearchPage'
+import PropertyPage from "./pages/PropertyPage"
+import PropertyDetails from "./pages/PropertyDetails"
+import Navbar from "./components/Navbar"
 
-import Home from "./pages/Home";
-import PropertyPage from "./pages/PropertyPage";
-import PropertyDetails from "./pages/PropertyDetails";
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+      <Navbar />
       <Routes>
-
-        {/* Home page */}
-        <Route path="/" element={<Home />} />
-
-        {/* Property listing page (where links live) */}
-        <Route path="/properties" element={<PropertyPage />} />
-
-        {/* Property details page (dynamic) */}
+        <Route path="/" element={<SearchPage/>}/>
+        <Route path="/property" element={<PropertyPage />}/>
         <Route path="/property/:id" element={<PropertyDetails />} />
-
       </Routes>
-    </BrowserRouter>
-  );
+    </>
+  )
 }
 
-export default App;
+export default App
