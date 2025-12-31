@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function useSearchBox() {
+function useSearchBox() {
   const navigate = useNavigate();
 
   /* Postcode */
@@ -93,3 +93,5 @@ export default function useSearchBox() {
     handleSearch
   };
 }
+
+export default useSearchBox;

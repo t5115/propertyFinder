@@ -1,0 +1,53 @@
+.parent-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.mainThumb {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+}
+
+.address{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.property-info{
+    display: flex;
+    gap:1rem;
+    padding-bottom:10px;
+}
+
+.property-info > p {
+    background-color: rgb(231, 228, 228);
+    border-radius: 5px;
+    padding: 0.25rem;
+    margin:0px;
+    margin-bottom: 5px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.react-tabs-wrapper{
+    margin-top: 20px;
+    margin-bottom: 90px;
+}
+
+
+@media (max-width:900px) {
+   .parent-container{
+    width:100%
+   }
+
+   .information{
+    margin-left: 15px;
+   }
+
+   .react-tabs-wrapper{
+    margin-left: 15px;
+    margin-right:15px;
+   }
+}

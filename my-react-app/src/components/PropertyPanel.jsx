@@ -28,7 +28,7 @@ function PropertyPanel({property}) {
               <p className="address">{property.location}</p>
               <div className="property-details">
                   <p className="property-type">{property.type}</p>
-                  <p className="bedrooms">{property.bedrooms} Beds</p>
+                  <p className="bedrooms">{property.bedrooms} Bed</p>
               </div>
               <p className="description">{property.description?.substring(0, 120)}...</p>
             </div>

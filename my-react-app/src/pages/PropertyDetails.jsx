@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
+import PropertyView from "../components/PropertyView";
 import propertiesData from "../../public/properties.json";
 import houseTemplate from "../assets/houseTemplate1.jpg"
+import "./PropertyDetails.css"
 
 function PropertyDetails() {
 
@@ -13,8 +15,9 @@ function PropertyDetails() {
   console.log(property);
   
   return(
-    
-    <h2>test</h2>
+    <div className="page-wrapper">
+      <PropertyView property={property}/>
+    </div>
   );
 }
 

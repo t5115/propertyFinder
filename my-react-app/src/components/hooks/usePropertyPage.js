@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import propertiesData from "../../../public/properties.json"
 
-export default function usePropertyPage() {
+function usePropertyPage() {
   const [activeTab, setActiveTab] = useState("properties");
 
   const location = useLocation();
@@ -51,3 +51,5 @@ export default function usePropertyPage() {
     totalResults
   };
 }
+
+export default usePropertyPage;
