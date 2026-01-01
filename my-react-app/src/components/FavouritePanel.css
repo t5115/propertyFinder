@@ -43,7 +43,10 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    text-decoration: none;
+    color: inherit;
 }
+
 
 .favourite-img{
     width: 100%;             
@@ -61,6 +64,7 @@
     width: 22px;
     height: 22px;
     cursor: pointer;
+    filter: invert(30%) sepia(85%) saturate(6000%) hue-rotate(340deg) brightness(95%) contrast(90%);
 }
 
 .item-details{

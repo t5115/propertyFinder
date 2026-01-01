@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useFavourites from "./hooks/useFavourites.js"
 import houseTemplate from "../assets/houseTemplate1.jpg";
 import heart from "../assets/heart.svg";
 
@@ -6,6 +7,9 @@ function PropertyPanel({property}) {
   
   if (!property) return null;
   
+  const { favourites, toggleFavourite } = useFavourites();
+  const isFavourite = favourites.includes(property.id);
+
   console.log(property.id, `/property/${property.id}`);
 
 
@@ -37,7 +41,10 @@ function PropertyPanel({property}) {
             </Link>
             <div className="bottom-box">
                 <p>Date Added: {property.added?.day} {property.added?.month} {property.added?.year}</p>
-                <img className="bottom-icon" src={heart}/>
+                <img className={`bottom-icon ${isFavourite ? "favourited" : ""}`} 
+                     src={heart}
+                     onClick={()=>toggleFavourite(property.id)}
+                />
             </div>
           </div>
       </div>

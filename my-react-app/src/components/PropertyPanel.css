@@ -96,6 +96,11 @@
     color: inherit;
 }
 
+.bottom-icon.favourited {
+
+  filter: invert(30%) sepia(85%) saturate(6000%) hue-rotate(340deg) brightness(95%) contrast(90%);
+}
+
 /* Mobile Styling (Kept as per your original) */
 @media (max-width: 1100px) {
   .property-container {
