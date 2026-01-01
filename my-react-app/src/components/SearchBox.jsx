@@ -28,7 +28,7 @@ function SearchBox() {
                 <div className="form-button">
                   <Combobox
                     data={areaOptions}         
-                    placeholder="Search by area" 
+                    placeholder="Search by area or postcode" 
                     value={area}              
                     onChange={(value) => setArea(value)} 
                     defaultValue="New York"     

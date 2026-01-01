@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import propertiesData from "../../../public/properties.json"
+import propertiesData from "../../data/properties.json"
 
 function usePropertyPage() {
   const [activeTab, setActiveTab] = useState("properties");

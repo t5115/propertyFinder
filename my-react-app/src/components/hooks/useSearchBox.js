@@ -6,7 +6,7 @@ function useSearchBox() {
 
   /* Postcode */
   const [area, setArea] = useState("");
-  const areaOptions = ["London","York","Birmingham","Manchester","Westminster","Orpington"];
+  const areaOptions = ["London","Birmingham","Westminster","Orpington","BR6","E15","E12","E16","BR","BR5"];
 
   /* Property Type */
   const [propertyType, setPropertyType] = useState("Any");

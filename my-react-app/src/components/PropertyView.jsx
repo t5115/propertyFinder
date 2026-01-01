@@ -1,30 +1,80 @@
+import { useState } from "react";
+
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+
+/* Swiper imports for the gallery*/
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Thumbs } from 'swiper/modules';
+
+/*Swiper CSS */
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/thumbs';
 
 import houseTemplate from ".././assets/houseTemplate1.jpg"
 import './PropertyView.css'
 
 function PropertyView({property}) {
 
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   if (!property) {
         return <p>Property not found</p>; /*Protect against random link typing */
     }
+ 
 
   return (
     <div className="parent-container">
+       { /*holds images */}
         <div className="imageWrapper">
-              <img src={houseTemplate} className="mainThumb"/>
+           <Swiper
+                loop={true}
+                spaceBetween={10}
+                navigation={true}
+                pagination={{ clickable: true }}
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                modules={[Navigation, Pagination, Thumbs]}
+                className="main-slider"
+            >
+                {property.picture.map((pic, index) => (
+                    <SwiperSlide key={index}>
+                        <img src={pic} alt={`Property view ${index + 1}`} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
+            {/* Smaller Thumbnail Row Below */}
+            <Swiper
+                onSwiper={setThumbsSwiper}
+                loop={false}
+                spaceBetween={10}
+                slidesPerView={4}
+                watchSlidesProgress={true}
+                modules={[Navigation, Thumbs]}
+                className="thumb-slider"
+             >
+                {property.picture.map((pic, index) => (
+                    <SwiperSlide key={index}>
+                        <img src={pic} alt={`Thumbnail ${index + 1}`} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
       
+         { /*contains property info underneath image */}
         <div className="information">
             <p className="price">£{property.price?.toLocaleString()}</p> 
             <p className="address">{property.location}</p>
             <div className="property-info">
                 <p className="beds">{property.bedrooms} Bed</p>
                 <p className="propertyType">{property.type}</p>
+                <p className="tenure">{property.tenure}</p>
             </div>
         </div>
 
+         { /*tabs can switch between under price*/}
         <div className="react-tabs-wrapper">
             <Tabs>
                 <TabList>
@@ -38,11 +88,32 @@ function PropertyView({property}) {
             </TabPanel>
 
             <TabPanel>
-                <p>Floor plan will go here</p>
+                {property.floorplan ? (
+                    <img
+                    src={property.floorplan}
+                    alt="Floor plan"
+                    className="floorplan-image"
+                    />
+                ) : (
+                    <p>No floor plan available</p>
+                )}
             </TabPanel>
 
             <TabPanel>
-                <p>Map goes here</p>
+                <div className="map-container">
+                    <iframe
+                    title="Property location"
+                    width="100%"
+                    height="400"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(
+                        property.location
+                    )}&output=embed`}
+                    />
+                </div>
             </TabPanel>
 
             </Tabs>

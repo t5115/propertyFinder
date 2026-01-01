@@ -14,12 +14,13 @@ function PropertyPanel({property}) {
       {/*Child Container*/}
       <div className="property-card">
         <Link to={`/property/${property.id}`} className="property-link">
-          <img
+          <div className="property-image-wrapper">
+            <img
               className="property-img"
-              src={property.picture ? `/${property.picture}` : houseTemplate}
+              src={property.picture?.[0] || houseTemplate}
               alt="Property"
-              onError={(e) => { e.target.src = houseTemplate; }}
             />
+          </div>
         </Link>
           <div className="right-box">
             <Link to={`/property/${property.id}`} className="property-link">
@@ -27,8 +28,9 @@ function PropertyPanel({property}) {
               <p className="price">£{property.price?.toLocaleString()}</p>
               <p className="address">{property.location}</p>
               <div className="property-details">
-                  <p className="property-type">{property.type}</p>
                   <p className="bedrooms">{property.bedrooms} Bed</p>
+                  <p className="property-type">{property.type}</p>
+                  <p className="tenure">{property.tenure}</p>
               </div>
               <p className="description">{property.description?.substring(0, 120)}...</p>
             </div>
