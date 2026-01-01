@@ -15,11 +15,15 @@ export default function useFavourites() {
     if (globalFavourites.includes(id)) {
       /* Remove if already favourited */
       globalFavourites = globalFavourites.filter((fid) => fid !== id);
+      console.log("Favourite removed:", id);
     } else {
       /* Add if not favourited */
       globalFavourites = [...globalFavourites, id];
+      console.log("Favourite added:", id);
     }
 
+    console.log("Updated favourites list:", globalFavourites);
+    
     /* Update all subscribed components */
     listeners.forEach((listener) => listener([...globalFavourites]));
   };

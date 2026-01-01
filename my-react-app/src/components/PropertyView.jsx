@@ -13,17 +13,24 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 
+import useFavourites from "./hooks/useFavourites.js"
+
 import houseTemplate from ".././assets/houseTemplate1.jpg"
 import './PropertyView.css'
+import heart from "../assets/heart.svg"
 
 function PropertyView({property}) {
 
+  const { favourites, toggleFavourite } = useFavourites();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  
   if (!property) {
         return <p>Property not found</p>; /*Protect against random link typing */
     }
- 
+
+  
+
+  const isFavourite = favourites.includes(property.id);
 
   return (
     <div className="parent-container">
@@ -66,7 +73,15 @@ function PropertyView({property}) {
          { /*contains property info underneath image */}
         <div className="information">
             <p className="price">£{property.price?.toLocaleString()}</p> 
-            <p className="address">{property.location}</p>
+            <div className="second-row">
+                  <p className="address">{property.location}</p>
+                  <img
+                    className={`heart-btn ${isFavourite ? "favourited" : ""}`}
+                    src={heart}
+                    onClick={() => toggleFavourite(property.id)}
+                   />
+            </div>
+          
             <div className="property-info">
                 <p className="beds">{property.bedrooms} Bed</p>
                 <p className="propertyType">{property.type}</p>

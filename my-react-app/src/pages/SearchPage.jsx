@@ -3,6 +3,7 @@ import "./SearchPage.css";
 
 /*Component*/
 import SearchBox from "../components/SearchBox";
+import FavouritePanel from "../components/FavouritePanel"
 
 
 function SearchPage() {
@@ -10,6 +11,10 @@ function SearchPage() {
     <>
       <main>
         <SearchBox/>
+        <div className="search-page-fav-panel">
+          <FavouritePanel/>
+        </div>
+        
       </main>
     </>
   );
