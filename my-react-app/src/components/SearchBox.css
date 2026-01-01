@@ -91,3 +91,15 @@
   border-radius: 8px;                 
   width: 100%;
 }
+
+/*Search button hover styling*/
+#search-button .form-field:hover {
+    background-color: rgb(0, 180, 0);     
+    transform: scale(1.005);          
+    transition: all 0.2s ease-in-out; 
+}
+
+/*Default button transition*/
+#search-button .form-field {
+    transition: all 0.2s ease-in-out;
+}

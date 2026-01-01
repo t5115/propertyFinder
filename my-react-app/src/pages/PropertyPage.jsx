@@ -3,6 +3,8 @@ import PropertyPanel from "../components/PropertyPanel";
 import FavouritePanel from "../components/FavouritePanel";
 import MobileListSelector from "../components/MobileListSelector";
 import usePropertyPage from "../components/hooks/usePropertyPage";
+import useFavourites from "../components/hooks/useFavourites";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 import "../components/SearchResults.css";
 import "../components/PropertyPanel.css";
@@ -11,6 +13,23 @@ import "../pages/PropertyPage.css";
 
 function PropertyPage() {
   const { activeTab, setActiveTab, filteredProperties, totalResults } = usePropertyPage();
+  const { favourites, toggleFavourite } = useFavourites();
+
+  const onDragEnd = (result) => {
+    const { source, destination, draggableId } = result;
+
+    if (!destination) return;
+
+    /* Property → Favourites */
+    if (destination.droppableId === "favourites" && source.droppableId === "properties") {
+      toggleFavourite(draggableId);
+    }
+
+    /* Favourites → Properties (unsave) */
+    if (destination.droppableId === "properties" && source.droppableId === "favourites") {
+      toggleFavourite(draggableId);
+    }
+  };
 
   const renderPropertyList = () => (
     <>

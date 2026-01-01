@@ -6,13 +6,19 @@
 
 .property-card {
     display: flex;
-   
     align-items: stretch;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: 100%;
     gap: 1rem;
     margin-bottom: 20px;
-   overflow: hidden;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-5px); 
+    background-color: #d4d4d4;  
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
 }
 
 /* Ensure the link around the image behaves like a layout box */
@@ -123,7 +129,7 @@
   }
 
   .property-img {
-    margin-top: 5px;
+    margin-top: 20px;
     height: 100%;
     object-fit: contain; 
     box-shadow: none; 
