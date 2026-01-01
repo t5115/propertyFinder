@@ -12,7 +12,6 @@ function PropertyPanel({property}) {
 
   console.log(property.id, `/property/${property.id}`);
 
-
   return (
     <>
       {/*Child Container*/}

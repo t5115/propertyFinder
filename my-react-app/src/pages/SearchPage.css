@@ -18,12 +18,20 @@ main {
   justify-content: center;
 }
 
+.search-page-fav-panel .favourite-body{
+    width:80%
+}
+
 .search-page-fav-panel .favourite-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1.5rem;
   justify-items: center;   /* ← centers cards */
     
+}
+
+.search-page-fav-panel .favourites{
+    max-width: 25vw;
 }
 
 
@@ -36,8 +44,11 @@ main {
 
   .search-page-fav-panel .favourite-panel{
  
-    flex-direction: column;
-}
+    flex-direction: row;
+    }
 
+  .search-page-fav-panel .favourites{
+    max-width: 100%;
+    }
 
 }
