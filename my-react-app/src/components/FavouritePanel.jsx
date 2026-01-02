@@ -19,7 +19,19 @@ function FavouritePanel(){
           <div className="top-bar">
             <h3>Favourites</h3>
           </div>
-          
+
+          {/*Remove all logic*/}
+          {favouriteProperties.length > 0 && (
+            <div className="remove-all">
+              <button
+                className="remove-favourite-btn"
+                onClick={() => favourites.forEach(id => toggleFavourite(id))}
+              >
+                Remove all
+              </button>
+            </div>
+          )}
+                  
           <div className="favourite-panel">
             {favouriteProperties.length === 0 ? (
               <p>No favourites yet!</p>

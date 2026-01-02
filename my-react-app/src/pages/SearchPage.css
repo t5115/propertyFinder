@@ -51,4 +51,13 @@ main {
     max-width: 100%;
     }
 
+  .search-page-fav-panel .top-bar{
+    
+    width: 95%;
+    font-size: 2rem;      /* scale text for smaller screens */
+    padding: 0.8rem 0;    /* increase vertical padding for mobile */
+ 
+
+  }
+
 }
