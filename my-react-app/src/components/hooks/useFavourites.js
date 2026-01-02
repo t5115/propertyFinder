@@ -41,3 +41,8 @@ export default function useFavourites() {
  
   return { favourites, toggleFavourite };
 }
+
+export const resetFavouritesForTesting = () => {
+  globalFavourites = [];
+  listeners = [];
+};

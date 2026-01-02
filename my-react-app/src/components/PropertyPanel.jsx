@@ -10,8 +10,6 @@ function PropertyPanel({property}) {
   const { favourites, toggleFavourite } = useFavourites();
   const isFavourite = favourites.includes(property.id);
 
-  console.log(property.id, `/property/${property.id}`);
-
   return (
     <>
       {/*Child Container*/}
@@ -40,7 +38,7 @@ function PropertyPanel({property}) {
             </Link>
             <div className="bottom-box">
                 <p>Date Added: {property.added?.day} {property.added?.month} {property.added?.year}</p>
-                <img className={`bottom-icon ${isFavourite ? "favourited" : ""}`} 
+                <img data-testid="main-fav-btn" className={`bottom-icon ${isFavourite ? "favourited" : ""}`} 
                      src={heart}
                      onClick={()=>toggleFavourite(property.id)}
                 />

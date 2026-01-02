@@ -45,6 +45,15 @@
     padding: 1rem;
     text-decoration: none;
     color: inherit;
+    margin-bottom:1rem;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.favourites:hover {
+    transform: translateY(-5px);
+    background-color: #d4d4d4;
+    
 }
 
 
@@ -105,8 +114,9 @@
 }
 
 .remove-favourite-btn:hover {
-    background-color: #c9302c;
+    background-color: #a02a26;
 }
+
 
 
 @media (max-width: 1100px) {
@@ -118,4 +128,15 @@
  .top-bar{
     display: none;
  }
+
+  .remove-all {
+      width: 100%;
+      justify-content: center;
+  }
+
+  .remove-favourite-btn {
+      width: 90%;
+      font-size: 1rem;
+  }
+
 }

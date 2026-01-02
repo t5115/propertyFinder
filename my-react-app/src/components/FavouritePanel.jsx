@@ -20,9 +20,9 @@ function FavouritePanel(){
             <h3>Favourites</h3>
           </div>
 
-          {/*Remove all logic*/}
-          {favouriteProperties.length > 0 && (
-            <div className="remove-all">
+          {/*Remove all*/}
+          {favouriteProperties.length > 0 && ( 
+            <div className="remove-all"> {/*Doesnt Show this is no favourites */}
               <button
                 className="remove-favourite-btn"
                 onClick={() => favourites.forEach(id => toggleFavourite(id))}
@@ -48,7 +48,7 @@ function FavouritePanel(){
                       src={property.picture?.[0] || houseTemplate}
                       alt="Property"
                     />
-                    <img className="heart-icon" src={heart} onClick={(e)=>{
+                    <img data-testid="list-fav-btn" className="heart-icon" src={heart} onClick={(e)=>{
                       e.preventDefault();
                       e.stopPropagation();
                       toggleFavourite(property.id)
