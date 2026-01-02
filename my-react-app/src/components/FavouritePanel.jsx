@@ -45,7 +45,7 @@ function FavouritePanel(){
                   <div className="image-wrapper">
                     <img
                       className="favourite-img"
-                      src={property.picture?.[0] || houseTemplate}
+                      src={property.picture?.[0] ? `${import.meta.env.BASE_URL}${property.picture[0]}` : houseTemplate}
                       alt="Property"
                     />
                     <img data-testid="list-fav-btn" className="heart-icon" src={heart} onClick={(e)=>{
