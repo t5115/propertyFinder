@@ -114,7 +114,6 @@ function SearchBox() {
               </div>
             </div>
 
-
             {/*Search button*/}
             <div id="search-button">
                 <button type="submit" className='form-field'  onClick={handleSearch}>Search</button>

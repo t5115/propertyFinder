@@ -18,7 +18,7 @@ function PropertyPanel({property}) {
           <div className="property-image-wrapper">
             <img
               className="property-img"
-              src={property.picture?.[0] ? `${import.meta.env.BASE_URL}${property.picture[0]}` : `${import.meta.env.BASE_URL}images/houseTemplate1.jpg`}
+              src={property.picture?.[0] ? `${import.meta.env.BASE_URL}${property.picture[0]}` : houseTemplate}
               alt="Property"
             />
           </div>
