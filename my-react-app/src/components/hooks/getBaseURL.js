@@ -1,16 +1,14 @@
 
 export const getBaseUrl = () => {
-  // If running in Jest, BASE_URL can be a global set
-  if (typeof BASE_URL !== "undefined") {
-    return BASE_URL;
-  }
+  
+  if (typeof BASE_URL !== "undefined") return BASE_URL;
 
   
   if (typeof window !== "undefined") {
-    // GitHub Pages
-    return window.location.origin + (import.meta.env?.BASE_URL || "/");
+    // For GitHub Pages hard coding path so jest tests work.
+    return window.location.origin + "/propertyFinder/";
   }
 
-  // Default fallback for anything else 
+ // fall back
   return "/";
 };
