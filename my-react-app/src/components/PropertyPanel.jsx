@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useFavourites from "./hooks/useFavourites.js"
 import houseTemplate from "../assets/houseTemplate1.jpg";
 import heart from "../assets/heart.svg";
+import {getBaseUrl} from "./hooks/getBaseURL.js"
 
 function PropertyPanel({property}) {
   
@@ -18,7 +19,11 @@ function PropertyPanel({property}) {
           <div className="property-image-wrapper">
             <img
               className="property-img"
-              src={property.picture?.[0] ? `${import.meta.env.BASE_URL}${property.picture[0]}` : houseTemplate}
+              src={
+                property.picture?.[0]
+                  ? `${getBaseUrl()}${property.picture[0].replace(/^\/+/, "")}`
+                  : houseTemplate
+              }
               alt="Property"
             />
           </div>

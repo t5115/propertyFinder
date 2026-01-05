@@ -19,6 +19,8 @@ import houseTemplate from "../assets/houseTemplate1.jpg"
 import './PropertyView.css'
 import heart from "../assets/heart.svg"
 
+import { getBaseUrl } from "./hooks/getBaseURL.js";
+
 function PropertyView({property}) {
 
   const { favourites, toggleFavourite } = useFavourites();
@@ -30,8 +32,8 @@ function PropertyView({property}) {
 
   const isFavourite = favourites.includes(property.id);
 
-  // Helper function to prepend base URL
-  const getImageUrl = (path) => path ? `${import.meta.env.BASE_URL}${path}` : houseTemplate;
+  // Helper function to get image urls
+  const getImageUrl = (path) => path ? `${getBaseUrl()}${path}` : houseTemplate;
 
   return (
     <div className="parent-container">
